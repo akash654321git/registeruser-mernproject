@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const RegistrationForm = () => {
   const [name, setName] = useState('');
@@ -24,33 +26,36 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div>
+    <div className='register'>
       <h2>Registration</h2>
-      <input
+      <TextField  id="outlined-basic" label="name" variant="outlined"
         type="text"
         placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <input
+      <TextField  id="outlined-basic"  label="email" variant="outlined"
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <TextField   id="outlined-basic"  label="mobileNumber" variant="outlined"
         type="text"
         placeholder="mobileNumber"
         value={mobileNumber}
         onChange={(e) => setmobileNumber(e.target.value)}
       />
-      <input
+      <TextField id="outlined-basic"  label="Password" variant="outlined"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleRegistration}>Register</button>
+      <button ></button>
+      <Button onClick={handleRegistration} variant="contained" color="success">
+      Register
+      </Button>
       {message && <p>{message}</p>}
     </div>
   );

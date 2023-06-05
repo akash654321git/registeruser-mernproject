@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import TextField from '@mui/material/TextField';
+
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import axios from 'axios';
 
 const UserListScreen = () => {
@@ -43,7 +47,7 @@ const UserListScreen = () => {
   return (
     <div>
       <h2>User List</h2>
-      <input
+      <TextField id="filled-basic" label="Search" variant="filled"
         type="text"
         placeholder="Search"
         value={search}
@@ -61,11 +65,13 @@ const UserListScreen = () => {
       {message && <p>{message}</p>}
       <div>
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-          Previous
+           Previous
+          <ArrowBackIosIcon />
         </button>
         <span>{page}</span>
         <button disabled={limit * page >= total} onClick={() => setPage(page + 1)}>
           Next
+          <ArrowForwardIosIcon/>
         </button>
       </div>
     </div>
